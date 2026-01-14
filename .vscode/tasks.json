@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Copy to Siblings",
+            "type": "shell",
+            "command": "bash",
+            "args": ["scripts/copy_to_siblings.sh"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Copy to Custom Siblings",
+            "type": "shell",
+            "command": "bash",
+            "args": ["scripts/copy_to_siblings.sh", "${input:targets}"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "targets",
+            "description": "Enter target sibling folders (space-separated, e.g., '6 4 8')",
+            "default": "6 4",
+            "type": "promptString"
+        }
+    ]
+}
